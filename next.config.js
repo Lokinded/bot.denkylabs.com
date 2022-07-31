@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -14,22 +14,22 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/add',
-        destination: 'https://discord.com/oauth2/authorize?client_id=704517722100465746&scope=bot+applications.commands&permissions=1346759886',
+        source: "/add",
+        destination: "https://discord.com/oauth2/authorize?client_id=704517722100465746&scope=bot+applications.commands&permissions=1346759886",
         permanent: false
       },
       {
-        source: '/support',
-        destination: 'https://discord.gg/bVWdscg',
+        source: "/support",
+        destination: "https://discord.gg/bVWdscg",
         permanent: false
       },
       {
-        source: '/vote',
-        destination: 'https://top.gg/bot/704517722100465746/vote',
+        source: "/vote",
+        destination: "https://top.gg/bot/704517722100465746/vote",
         permanent: false
       }
-    ]
+    ];
   }
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
