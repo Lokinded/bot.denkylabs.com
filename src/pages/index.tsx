@@ -2,13 +2,13 @@ import Image from 'next/future/image';
 import Link from 'next/link';
 import Head from 'next/head';
 import Card from '../components/Card';
-import logo from '../../public/denky_logo.png';
+import logo from '../assets/denky_logo_566x566.png';
 
 export default function IndexRoute() {
   return (
     <main className="w-full max-w-full max-h-full h-full flex-col overflow-y-auto">
       <Head>
-        <meta name="theme-color" content="#4e5d94" />
+        <meta name="theme-color" content="#CC8899" />
         <title>Denky Bot</title>
         <meta name="description" content="Denky is a multi-purpose bot ready to improve and boost your Discord server." />
       </Head>
