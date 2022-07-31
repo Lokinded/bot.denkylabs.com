@@ -15,11 +15,11 @@
   "author": "Nicolas Ribeiro <niskii@denkylabs.com>",
   "scripts": {
     "dev": "npx next dev",
-    "build": "npx next build",
-    "start": "npx next start",
-    "lint": "npx eslint",
-    "lint:fix": "npx eslint src --fix",
-    "types:check": "npx tsc --noEmit"
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "lint:fix": "eslint src --fix",
+    "types:check": "tsc --noEmit"
   },
   "dependencies": {
     "next": "12.2.3",
