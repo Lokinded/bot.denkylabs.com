@@ -55,7 +55,8 @@ export default function IndexRoute() {
       </div>
       <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
         <span className="flex flex-row justify-center font-extrabold mt-[30px] text-3xl">Main Functions</span>
-        <div className="space-y-5 xl:space-y-0 flex-col xl:flex-row w-full max-w-full flex xl:justify-center pt-[30px]">
+
+        <div className="items-center space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
           <Card title="AntiSpam" text="Are your members sending messages too fast or too many emojis? Denky helps you block such messages." />
           <Card title="Lockdown" text="Block all channels on your server within seconds. And you can only unlock the channels that have been locked." />
           <Card title="Captcha" text="Suffering from Selfbots? Denky can make members have to verify themselves before interacting on the server." />
