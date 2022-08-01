@@ -27,6 +27,11 @@ const nextConfig = {
         source: "/vote",
         destination: "https://top.gg/bot/704517722100465746/vote",
         permanent: false
+      },
+      {
+        source: "/github",
+        destination: "https://github.com/denkylabs/denkybot",
+        permanent: false
       }
     ];
   }

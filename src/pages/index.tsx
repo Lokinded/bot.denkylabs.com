@@ -1,8 +1,10 @@
 import Image from 'next/future/image';
 import Link from 'next/link';
 import Head from 'next/head';
+import { Card as DiscordCard } from 'lanyard-card';
 import Card from '../components/Card';
 import logo from '../assets/denky_logo_566x566.png';
+import { users } from '../users';
 
 export default function IndexRoute() {
   return (
@@ -10,7 +12,7 @@ export default function IndexRoute() {
       <Head>
         <meta name="theme-color" content="#CC8899" />
         <title>Denky Bot</title>
-        <meta name="description" content="Denky is a multi-purpose bot ready to improve and boost your Discord server." />
+        <meta name="description" content="Denky is a multipurpose bot ready to improve and boost your Discord server." />
       </Head>
       <div className="flex h-[65px] sticky top-0 border-b border-purple-600 justify-center px-5">
         <div className="flex flex-row items-center w-full justify-between">
@@ -55,12 +57,19 @@ export default function IndexRoute() {
       </div>
       <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
         <span className="flex flex-row justify-center font-extrabold mt-[30px] text-3xl">Main Functions</span>
-
         <div className="items-center space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
           <Card title="AntiSpam" text="Are your members sending messages too fast or too many emojis? Denky helps you block such messages." />
           <Card title="Lockdown" text="Block all channels on your server within seconds. And you can only unlock the channels that have been locked." />
           <Card title="Captcha" text="Suffering from Selfbots? Denky can make members have to verify themselves before interacting on the server." />
           <Card title="AntiRaid" text="With Denky's AntiRaid, you can make very new accounts unable to log into your server, preventing problems." />
+        </div>
+      </div>
+      <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
+        <span className="flex flex-row justify-center font-extrabold mt-[30px] text-3xl">Team</span>
+        <div className="items-center space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
+          {users.map(id => {
+            return <DiscordCard id={id} />;
+          })}
         </div>
       </div>
     </main>
