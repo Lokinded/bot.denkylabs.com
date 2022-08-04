@@ -1,4 +1,5 @@
 import { Data } from 'use-lanyard';
+import { formatTimestamp } from '../../../utils';
 
 export default function Spotify(data: Data | undefined) {
   if (!data) return null;
@@ -15,6 +16,7 @@ export default function Spotify(data: Data | undefined) {
             <h5 className="font-bold leading-4">{data.spotify?.song}</h5>
           </a>
           <span className="text-sm text-gray-300">by {data.spotify?.artist.replaceAll('; ', ', ')}</span>
+          <p className="text-sm text-gray-400">{formatTimestamp(data.spotify?.timestamps.start as number)}</p>
         </div>
       </div>
     </header>
