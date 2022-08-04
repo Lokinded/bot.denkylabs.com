@@ -3,10 +3,16 @@ import { useMemo } from 'react';
 import Activities from './Activities';
 import Avatar from './Avatar';
 import Name from './Name';
+import Socials from './Socials';
 
 interface CardProps {
   id: string;
   role: string[];
+  email?: string;
+  github?: string;
+  twitter?: string;
+  spotify?: string;
+  instagram?: string;
 }
 
 export default function Profile(props: CardProps) {
@@ -29,6 +35,14 @@ export default function Profile(props: CardProps) {
         )}
       </div>
       {Activities(data)}
+      {data &&
+        Socials({
+          email: props.email,
+          github: props.github,
+          twitter: props.twitter,
+          spotify: props.spotify,
+          instagram: props.instagram,
+        })}
     </div>
   );
 }

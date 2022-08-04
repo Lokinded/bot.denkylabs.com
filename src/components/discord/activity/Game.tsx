@@ -1,26 +1,26 @@
-import { Data } from 'use-lanyard';
+import type { Data } from 'use-lanyard';
 import { formatLanguage, formatTimestamp } from '../../../utils';
 
 function ActivityImage(data: Data | undefined) {
   if (!data) return null;
-
   const activity = data.activities.find(x => x.type === 0);
+  if (!activity) return null;
 
-  if (activity && activity?.application_id && activity.assets?.large_image) {
+  if (activity && activity.application_id && activity.assets?.large_image) {
     return (
       <div className="inline-block relative">
-        <img className="inline-block rounded-md" src={`https://cdn.discordapp.com/app-assets/${activity.application_id ?? ''}/${activity.assets.large_image}.png`} alt={activity.assets?.large_text} />
+        <img className="inline-block rounded-md" src={`https://cdn.discordapp.com/app-assets/${activity.application_id ?? ''}/${activity.assets.large_image}.png`} />
       </div>
     );
   }
 }
 
 export default function Game(data: Data | undefined) {
+  const language = formatLanguage();
   if (!data) return null;
 
-  const language = formatLanguage();
-
   const activity = data.activities.find(x => x.type === 0);
+  if (!activity) return null;
 
   return (
     <div className="mt-6 w-full">
@@ -32,17 +32,16 @@ export default function Game(data: Data | undefined) {
             <img
               className="w-7 h-7 border-1 rounded-full bg-black border-black absolute bottom-[-7px] right-[-7px]"
               src={`https://cdn.discordapp.com/app-assets/${activity.application_id ?? ''}/${activity.assets.small_image}.png`}
-              alt={activity.assets.small_text}
               height={24}
               width={24}
             />
           )}
         </div>
         <div>
-          <h5 className="font-bold leading-4">{activity?.name}</h5>
-          {activity?.details && <p className="text-sm text-gray-300">{activity.details}</p>}
-          {activity?.state && <p className="text-sm text-gray-300">{activity.state}</p>}
-          {activity?.timestamps?.start && <p className="text-sm text-gray-300">{formatTimestamp(activity.timestamps.start)}</p>}
+          <h5 className="font-bold leading-4">{activity.name}</h5>
+          {activity.details && <p className="text-sm text-gray-300">{activity.details}</p>}
+          {activity.state && <p className="text-sm text-gray-300">{activity.state}</p>}
+          {activity.timestamps?.start && <p className="text-sm text-gray-300">{formatTimestamp(activity.timestamps.start)}</p>}
         </div>
       </div>
     </div>

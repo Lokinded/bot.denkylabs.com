@@ -73,8 +73,8 @@ export default function IndexRoute() {
 
         <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.team.title}</span>
         <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col xl:space-y-5 lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
-          {users.map(({ id, role }) => {
-            return <Profile id={id} role={role} />;
+          {users.map(({ id, role, connections }) => {
+            return <Profile id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} instagram={connections.instagram} />;
           })}
         </div>
       </div>

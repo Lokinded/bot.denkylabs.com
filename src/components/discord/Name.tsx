@@ -1,4 +1,4 @@
-import { Data } from 'use-lanyard';
+import type { Data } from 'use-lanyard';
 
 export default function Name(data: Data | undefined) {
   if (!data) return null;

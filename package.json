@@ -1,16 +1,16 @@
 {
   "name": "denkybot.club",
-  "description": "Source code for Denky's website, made using TypeScript, Next.js, TailwindCSS.",
+  "description": "Source code for Denky's website, made using TypeScript, Next.js and TailwindCSS.",
   "version": "0.1.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/whoisniskii/denkybot.club.git"
+    "url": "https://github.com/denkylabs/denkybot-website.git"
   },
   "bugs": {
-    "url": "https://github.com/whoisniskii/denkybot.club/issues"
+    "url": "https://github.com/denkylabs/denkybot-website/issues"
   },
-  "homepage": "https://github.com/whoisniskii/denkybot.club#readme",
+  "homepage": "https://github.com/denkylabs/denkybot-website#readme",
   "license": "GPL-3.0",
   "author": "Nicolas Ribeiro <niskii@denkylabs.com>",
   "scripts": {
@@ -22,7 +22,8 @@
     "types:check": "tsc --noEmit"
   },
   "dependencies": {
-    "next": "12.2.3",
+    "next": "12.2.4",
+    "phosphor-react": "^1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "use-lanyard": "^1.1.0"

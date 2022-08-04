@@ -34,6 +34,7 @@ export const indexContent = {
       title: 'Team',
       card: {
         spotify: 'Listening on Spotify',
+        spotifyMusicAuthor: 'by',
         game: 'Playing a game',
       },
     },
@@ -76,7 +77,8 @@ export const indexContent = {
       title: 'Equipe',
       card: {
         spotify: 'Ouvindo no spotify',
-        game: 'Jogando um jogo',
+        spotifyMusicAuthor: 'por',
+        game: 'Jogando',
       },
     },
     utils: {

@@ -1,4 +1,4 @@
-import { Data } from 'use-lanyard';
+import type { Data } from 'use-lanyard';
 import Status from './Status';
 
 export function displayAvatar(data: Data) {
@@ -12,7 +12,7 @@ export default function Avatar(data: Data | undefined) {
   return (
     <header>
       <div className="min-w-[5rem] relative inline-block pt-1">
-        <img className="w-28 h-28 rounded-full mb-4 sm:mb-0 sm:mr-4" src={displayAvatar(data as Data)} alt="My avatar" />
+        <img className="w-28 h-28 rounded-full mb-4 sm:mb-0 sm:mr-4" src={displayAvatar(data as Data)} />
 
         {Status(data)}
       </div>
