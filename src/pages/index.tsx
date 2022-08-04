@@ -5,12 +5,15 @@ import logo from '../assets/denky_logo_566x566.png';
 import Card from '../components/Card';
 import Profile from '../components/discord/Profile';
 import { users } from '../users';
+import { formatLanguage } from '../utils';
 
 export default function IndexRoute() {
+  const language = formatLanguage();
+
   return (
     <main className="w-full max-w-full max-h-full h-full flex-col overflow-y-auto">
       <Head>
-        <meta name="theme-color" content="#CC8899" />
+        <meta name="theme-color" content="#4e5d94" />
         <title>Denky Bot</title>
         <meta name="description" content="Denky is a multipurpose bot ready to improve and boost your Discord server." />
       </Head>
@@ -22,49 +25,53 @@ export default function IndexRoute() {
             </div>
 
             <Link href="/support" passHref>
-              <a className="text-blurple font-semibold">Support</a>
+              <a className="text-blurple font-semibold">{language.navBar.buttons.support}</a>
             </Link>
 
             <Link href="/vote" passHref>
-              <a className="text-blurple font-semibold">Vote</a>
+              <a className="text-blurple font-semibold">{language.navBar.buttons.vote}</a>
             </Link>
           </div>
           <div className="flex flex-row space-x-8">
             <a href="/add" className="bg-[1D1E28] border-2 border-purple-600 px-6 py-2 rounded-lg font-semibold text-white hover:bg-purple-600 transition-all duration-300 delay-100">
-              Add
+              {language.navBar.buttons.add}
             </a>
           </div>
         </div>
       </div>
       <div className="xl:pt-36 xl:pl-10 pt-7 pl-6">
-        <h1 className="font-bold text-4xl text-purple-500">Its time to invite Denky!</h1>
+        <h1 className="font-bold text-4xl text-purple-500">{language.home.title}</h1>
         <div className="flex flex-col grow text-base pt-5 font-normal">
           <p>
-            Denky is a <strong>multipurpose discord bot</strong> ready to improve and boost your Discord server.
+            {language.home.description.textOne}
+            <strong> {language.home.description.textStronged} </strong>
+            {language.home.description.textTwo}.
           </p>
           <p>
-            With automation functions: <strong>AntiRaid, AutoRole, Giveways, Moderation, Minigames and much more!</strong>
+            {language.home.descriptionTwo.text} <strong>{language.home.descriptionTwo.textStronged}!</strong>
           </p>
         </div>
       </div>
       <div className="flex flex-row xl:pt-10 xl:pl-7 pt-6 pl-4">
         <Link href="/add">
-          <button className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-600 text-xl font-semibold">Invite Denky</button>
+          <button className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-600 text-xl font-semibold">
+            {language.home.buttons.invite}
+          </button>
         </Link>
         <Link href="/support">
-          <button className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-[#2c2f33] rounded-lg focus:shadow-outlin text-xl font-semibold">Support Server</button>
+          <button className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-[#2c2f33] rounded-lg focus:shadow-outlin text-xl font-semibold">{language.home.buttons.support}</button>
         </Link>
       </div>
       <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
-        <span className="flex flex-row justify-center font-extrabold mt-[30px] text-3xl">Main Functions</span>
+        <span className="flex flex-row justify-center font-extrabold mt-[30px] text-3xl">{language.functions.title}</span>
         <div className="items-center space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
-          <Card title="AntiSpam" text="Are your members sending messages too fast or too many emojis? Denky helps you block such messages." />
-          <Card title="Lockdown" text="Block all channels on your server within seconds. And you can only unlock the channels that have been locked." />
-          <Card title="Captcha" text="Suffering from Selfbots? Denky can make members have to verify themselves before interacting on the server." />
-          <Card title="AntiRaid" text="With Denky's AntiRaid, you can make very new accounts unable to log into your server, preventing problems." />
+          <Card title="AntiSpam" text={language.functions.antispam} />
+          <Card title="Lockdown" text={language.functions.lockdown} />
+          <Card title="Captcha" text={language.functions.captcha} />
+          <Card title="AntiRaid" text={language.functions.antiraid} />
         </div>
 
-        <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">Team</span>
+        <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.team.title}</span>
         <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col xl:space-y-5 lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
           {users.map(({ id, role }) => {
             return <Profile id={id} role={role} />;

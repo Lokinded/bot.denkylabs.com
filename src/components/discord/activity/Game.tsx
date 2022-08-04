@@ -1,5 +1,5 @@
 import { Data } from 'use-lanyard';
-import { formatTimestamp } from '../../../utils';
+import { formatLanguage, formatTimestamp } from '../../../utils';
 
 function ActivityImage(data: Data | undefined) {
   if (!data) return null;
@@ -18,11 +18,13 @@ function ActivityImage(data: Data | undefined) {
 export default function Game(data: Data | undefined) {
   if (!data) return null;
 
+  const language = formatLanguage();
+
   const activity = data.activities.find(x => x.type === 0);
 
   return (
     <div className="mt-6 w-full">
-      <h5 className="ml-1 mb-1 antialiased text-xs font-bold uppercase text-gray-400">Playing a game</h5>
+      <h5 className="ml-1 mb-1 antialiased text-xs font-bold uppercase text-gray-400">{language.team.card.game}</h5>
       <div className="flex flex-row items-center rounded-lg overflow-hidden p-4 bg-[rgba(0,0,0,.2)]">
         <div className="w-20 h-20 min-w-[5rem] flex items-center justify-center relative mr-4">
           {ActivityImage(data)}

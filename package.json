@@ -14,7 +14,7 @@
   "license": "GPL-3.0",
   "author": "Nicolas Ribeiro <niskii@denkylabs.com>",
   "scripts": {
-    "dev": "npx next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

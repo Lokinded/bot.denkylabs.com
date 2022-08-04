@@ -6,7 +6,7 @@ import Name from './Name';
 
 interface CardProps {
   id: string;
-  role: string;
+  role: string[];
 }
 
 export default function Profile(props: CardProps) {
@@ -24,7 +24,7 @@ export default function Profile(props: CardProps) {
 
         {data && (
           <div className="flex justify-center items-center">
-            <span className="text-xs text-gray-400">{props.role}</span>
+            <span className="text-xs text-gray-400">{props.role.join(', ')}</span>
           </div>
         )}
       </div>
