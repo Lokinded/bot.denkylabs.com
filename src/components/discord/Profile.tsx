@@ -1,4 +1,5 @@
 import { useLanyardWs } from 'use-lanyard';
+import { useMemo } from 'react';
 import Activities from './Activities';
 import Avatar from './Avatar';
 import Name from './Name';
@@ -10,6 +11,10 @@ interface CardProps {
 
 export default function Profile(props: CardProps) {
   const data = useLanyardWs(props.id);
+
+  useMemo(() => {
+    return data;
+  }, [data]);
 
   return (
     <div className="rounded-lg p-4 w-full max-w-xl border-purple-600 border-2 xl:ml-6 md:ml-5">
