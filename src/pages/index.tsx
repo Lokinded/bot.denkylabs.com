@@ -1,9 +1,9 @@
 import Image from 'next/future/image';
-import Link from 'next/link';
 import Head from 'next/head';
-import { Card as DiscordCard } from 'lanyard-card';
-import Card from '../components/Card';
+import Link from 'next/link';
 import logo from '../assets/denky_logo_566x566.png';
+import Card from '../components/Card';
+import Profile from '../components/discord/Profile';
 import { users } from '../users';
 
 export default function IndexRoute() {
@@ -63,12 +63,11 @@ export default function IndexRoute() {
           <Card title="Captcha" text="Suffering from Selfbots? Denky can make members have to verify themselves before interacting on the server." />
           <Card title="AntiRaid" text="With Denky's AntiRaid, you can make very new accounts unable to log into your server, preventing problems." />
         </div>
-      </div>
-      <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
-        <span className="flex flex-row justify-center font-extrabold mt-[30px] text-3xl">Team</span>
-        <div className="items-center space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
-          {users.map(id => {
-            return <DiscordCard id={id} />;
+
+        <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">Team</span>
+        <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col xl:space-y-5 lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
+          {users.map(({ id, role }) => {
+            return <Profile id={id} role={role} />;
           })}
         </div>
       </div>
