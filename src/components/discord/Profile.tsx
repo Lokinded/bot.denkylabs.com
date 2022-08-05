@@ -1,5 +1,5 @@
-import { useLanyardWs } from 'use-lanyard';
 import { useMemo } from 'react';
+import { useLanyardWs } from 'use-lanyard';
 import Activities from './Activities';
 import Avatar from './Avatar';
 import Name from './Name';

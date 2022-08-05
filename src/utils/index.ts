@@ -11,6 +11,7 @@ export function formatLanguage() {
 }
 
 export function formatTimestamp(start: number) {
+  if (start === 0) return '00:00';
   const current = Math.floor((Date.now() - start) / 1000);
   return `${
     Math.floor(current / 60) >= 60

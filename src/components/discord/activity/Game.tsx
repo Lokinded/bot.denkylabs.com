@@ -9,7 +9,14 @@ function ActivityImage(data: Data | undefined) {
   if (activity && activity.application_id && activity.assets?.large_image) {
     return (
       <div className="inline-block relative">
-        <img className="inline-block rounded-md" src={`https://cdn.discordapp.com/app-assets/${activity.application_id ?? ''}/${activity.assets.large_image}.png`} />
+        <img
+          className="inline-block rounded-md"
+          src={
+            activity.assets.large_image.startsWith('mp:external')
+              ? activity.assets.large_image.replace(/mp:external\/([^/]*)\/(http[s])/g, '$2:/')
+              : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png`
+          }
+        />
       </div>
     );
   }
@@ -31,7 +38,11 @@ export default function Game(data: Data | undefined) {
           {activity?.assets?.small_image && (
             <img
               className="w-7 h-7 border-1 rounded-full bg-black border-black absolute bottom-[-7px] right-[-7px]"
-              src={`https://cdn.discordapp.com/app-assets/${activity.application_id ?? ''}/${activity.assets.small_image}.png`}
+              src={
+                activity.assets.small_image.startsWith('mp:external')
+                  ? activity.assets.small_image.replace(/mp:external\/([^/]*)\/(http[s])/g, '$2:/')
+                  : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.small_image}.png`
+              }
               height={24}
               width={24}
             />
