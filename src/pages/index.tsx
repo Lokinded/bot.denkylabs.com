@@ -72,12 +72,55 @@ export default function IndexRoute() {
         </div>
 
         <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.team.title}</span>
-        <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col xl:space-y-5 lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
-          {users.map(({ id, role, connections }) => {
-            return <Profile id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} instagram={connections.instagram} />;
+        <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
+          {users.map(({ id, role, connections }, index) => {
+            return <Profile key={index} id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} instagram={connections.instagram} />;
           })}
         </div>
       </div>
+      <footer className="m-4 p-4 sm:p-6 border-solid border-4 border-purple-600 rounded-lg">
+        <div className="md:flex md:justify-between">
+          <div className="mb-6 md:mb-0">
+            <a href="/add" className="flex items-center">
+              <Image className="h-[50px] w-[50px] mr-3 rounded-full" src={logo} />
+              <span className="self-center text-2xl font-semibold whitespace-nowrap">Denky</span>
+            </a>
+          </div>
+          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
+            <div>
+              <h2 className="mb-6 text-sm font-semibold uppercase">Follow us</h2>
+              <ul>
+                <li className="mb-4">
+                  <Link href="/add">
+                    <a>Invite</a>
+                  </Link>
+                </li>
+                <li className="mb-4">
+                  <Link href="/github">
+                    <a>Github</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/discord">
+                    <a>Discord</a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2 className="mb-6 text-sm font-semibold uppercase">Legal</h2>
+              <ul>
+                <li className="mb-4">
+                  <a>Privacy Policy</a>
+                </li>
+                <li>
+                  <a>Terms of use</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
