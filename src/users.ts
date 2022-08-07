@@ -4,6 +4,7 @@ export const users = [
     role: ['CEO', 'Developer'],
     connections: {
       github: 'https://github.com/davipatricio',
+      twitter: 'https://twitter.com/veric_patricio',
       email: 'veric@denkylabs.com',
     },
   },

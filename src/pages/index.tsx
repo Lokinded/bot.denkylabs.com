@@ -74,21 +74,40 @@ export default function IndexRoute() {
         <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.team.title}</span>
         <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
           {users.map(({ id, role, connections }, index) => {
-            return <Profile key={index} id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} instagram={connections.instagram} />;
+            return (
+              <Profile
+                key={index}
+                id={id}
+                role={role}
+                github={connections.github}
+                email={connections.email}
+                twitter={connections.twitter}
+                spotify={connections.spotify}
+                instagram={connections.instagram}
+              />
+            );
           })}
         </div>
       </div>
-      <footer className="m-4 p-4 sm:p-6 border-solid border-4 border-purple-600 rounded-lg">
+      <footer className="m-4 p-4 sm:p-6 border-solid border-2 border-purple-600 rounded-lg">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="/add" className="flex items-center">
               <Image className="h-[50px] w-[50px] mr-3 rounded-full" src={logo} />
               <span className="self-center text-2xl font-semibold whitespace-nowrap">Denky</span>
             </a>
+            <div className="flex items-center break-words mt-4">
+              <span>The best Discord bot to improve and boost your Discord server</span>
+            </div>
+            <div className="flex items-center break-words">
+              <div className="flex items-center xl:mt-20 mt-4">
+                <span className="ml-1 mb-1 antialiased text-xs font-bold uppercase text-gray-600">Copyright © 2019 - 2022 Denky Labs</span>
+              </div>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase">Follow us</h2>
+              <h2 className="mb-6 text-sm font-semibold uppercase">Denky</h2>
               <ul>
                 <li className="mb-4">
                   <Link href="/add">
@@ -100,21 +119,29 @@ export default function IndexRoute() {
                     <a>Github</a>
                   </Link>
                 </li>
-                <li>
+                <li className="mb-4">
                   <Link href="/discord">
-                    <a>Discord</a>
+                    <a>Support Server</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="mailto:opensource@denkylabs.com">
+                    <a>Support Contact</a>
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase">Legal</h2>
+              <h2 className="mb-6 text-sm font-semibold uppercase">Company</h2>
               <ul>
                 <li className="mb-4">
                   <a>Privacy Policy</a>
                 </li>
-                <li>
+                <li className="mb-4">
                   <a>Terms of use</a>
+                </li>
+                <li>
+                  <a href="mailto:opensource@denkylabs.com">Contact</a>
                 </li>
               </ul>
             </div>

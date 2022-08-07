@@ -45,7 +45,7 @@ export const indexContent = {
   'pt-BR': {
     navBar: {
       buttons: {
-        add: 'Adicionar',
+        add: 'Convite',
         support: 'Suporte',
         vote: 'Votar',
       },
