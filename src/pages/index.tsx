@@ -1,7 +1,7 @@
 import Image from 'next/future/image';
 import Head from 'next/head';
 import Link from 'next/link';
-import logo from '../assets/denky_logo_566x566.png';
+import logo from '../../public/denky_logo_566x566.png';
 import Card from '../components/Card';
 import Profile from '../components/discord/Profile';
 import { users } from '../users';
@@ -16,6 +16,7 @@ export default function IndexRoute() {
         <meta name="theme-color" content="#4e5d94" />
         <title>Denky Bot</title>
         <meta name="description" content="Denky is a multipurpose bot ready to improve and boost your Discord server." />
+        <link rel="shortcut icon" href="/denky_logo_566x566.png" />
       </Head>
       <div className="flex h-[65px] sticky top-0 border-b border-purple-600 justify-center px-5">
         <div className="flex flex-row items-center w-full justify-between">
