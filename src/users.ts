@@ -13,9 +13,7 @@ export const users = [
     role: ['Developer', 'Maintainer'],
     connections: {
       github: 'https://github.com/whoisniskii',
-      twitter: 'https://twitter.com/whoisniskii',
       spotify: 'https://open.spotify.com/user/wu6vyqmi5jig37nh6nkp3wzhg',
-      instagram: 'https://www.instagram.com/whoisniskii',
       email: 'niskii@denkylabs.com',
     },
   },
@@ -34,6 +32,15 @@ export const users = [
       github: 'https://github.com/BONEE4',
       twitter: 'https://twitter.com/BONEEv2',
       email: 'bonee@denkylabs.com',
+    },
+  },
+  {
+    id: '717766639260532826', // ADG
+    role: ['Community Manager'],
+    connections: {
+      github: 'https://github.com/andrelucaas',
+      twitter: 'https://twitter.com/4DG_YT',
+      email: 'adg@denkylabs.com',
     },
   },
 ];

@@ -41,6 +41,20 @@ export const indexContent = {
     utils: {
       formatTimestamp: 'elapsed',
     },
+    footer: {
+      description: 'The best Discord bot to improve and boost your Discord server',
+      denky: {
+        invite: 'Invite',
+        support: 'Support Server',
+        contact: 'Support Contact',
+      },
+      company: {
+        title: 'Company',
+        privacy: 'Privacy Policy',
+        terms: 'Terms of use',
+        contact: 'Contact',
+      },
+    },
   },
   'pt-BR': {
     navBar: {
@@ -83,6 +97,20 @@ export const indexContent = {
     },
     utils: {
       formatTimestamp: 'decorridos',
+    },
+    footer: {
+      description: 'O melhor bot do Discord para melhorar e impulsionar o seu servidor',
+      denky: {
+        invite: 'Convite',
+        support: 'Servidor de Suporte',
+        contact: 'Contato de suporte',
+      },
+      company: {
+        title: 'Companhia',
+        privacy: 'Política de Privacidade',
+        terms: 'Termos de Uso',
+        contact: 'Contato',
+      },
     },
   },
 };

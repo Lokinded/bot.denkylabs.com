@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { useLanyardWs } from 'use-lanyard';
-import Activities from './Activities';
 import Avatar from './Avatar';
 import Name from './Name';
 import Socials from './Socials';
@@ -12,7 +11,6 @@ interface CardProps {
   github?: string;
   twitter?: string;
   spotify?: string;
-  instagram?: string;
 }
 
 export default function Profile(props: CardProps) {
@@ -23,7 +21,7 @@ export default function Profile(props: CardProps) {
   }, [data]);
 
   return (
-    <div className="rounded-lg p-4 w-full max-w-xl border-purple-600 border-2 xl:ml-6 md:ml-5">
+    <div className="grid p-4 min-h-52 min-w-min rounded-md w-full max-w-xl border-purple-600 border-2 xl:ml-6 md:ml-5">
       <div className="flex flex-col items-center">
         {Avatar(data)}
         {Name(data)}
@@ -34,14 +32,12 @@ export default function Profile(props: CardProps) {
           </div>
         )}
       </div>
-      {Activities(data)}
       {data &&
         Socials({
           email: props.email,
           github: props.github,
           twitter: props.twitter,
           spotify: props.spotify,
-          instagram: props.instagram,
         })}
     </div>
   );

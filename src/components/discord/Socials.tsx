@@ -1,6 +1,5 @@
 import Email from './socials/Email';
 import GitHub from './socials/GitHub';
-import Instagram from './socials/Instagram';
 import Spotify from './socials/Spotify';
 import Twitter from './socials/Twitter';
 
@@ -9,7 +8,6 @@ interface CardProps {
   github?: string;
   twitter?: string;
   spotify?: string;
-  instagram?: string;
 }
 
 export default function Socials(props: CardProps) {
@@ -19,7 +17,6 @@ export default function Socials(props: CardProps) {
         {props.github && GitHub(props.github)}
         {props.twitter && Twitter(props.twitter)}
         {props.spotify && Spotify(props.spotify)}
-        {props.instagram && Instagram(props.instagram)}
         {props.email && Email(props.email)}
       </div>
     </div>
