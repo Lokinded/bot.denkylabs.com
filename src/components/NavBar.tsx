@@ -14,11 +14,11 @@ export default function NavBar() {
         </div>
 
         <Link href="/" passHref>
-          <a className="text-blurple font-semibold">Home</a>
+          <a className="text-blurple font-semibold hover:text-purple-400">Home</a>
         </Link>
 
         <Link href="/support" passHref>
-          <a className="text-blurple font-semibold">{language.navBar.buttons.support}</a>
+          <a className="text-blurple font-semibold hover:text-purple-400">{language.navBar.buttons.support}</a>
         </Link>
       </div>
       <div className="flex flex-row space-x-8">

@@ -1,12 +1,16 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Card from '../components/Card';
+import Profile from '../components/discord/Profile';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
-import { formatLanguage } from '../utils';
+import Statistics from '../components/Statistics';
+import { users } from '../users';
+import { formatLanguage, getApiData } from '../utils';
 
 export default function IndexRoute() {
   const language = formatLanguage();
+  const result = getApiData();
 
   return (
     <main className="w-full max-w-full max-h-full h-full flex-col overflow-y-auto">
@@ -21,7 +25,7 @@ export default function IndexRoute() {
       </div>
       <div className="xl:pt-20 xl:pl-10 pt-7 pl-6">
         <h1 className="font-bold text-4xl text-purple-500">{language.home.title}</h1>
-        <div className="flex flex-col grow text-base pt-5 font-normal">
+        <div className="flex flex-col grow text-base pt-3 font-normal">
           <p>
             {language.home.description.textOne}
             <strong> {language.home.description.textStronged} </strong>
@@ -49,6 +53,21 @@ export default function IndexRoute() {
           <Card title="Lockdown" text={language.functions.lockdown} />
           <Card title="Captcha" text={language.functions.captcha} />
           <Card title="AntiRaid" text={language.functions.antiraid} />
+        </div>
+        <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
+          <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.team.title}</span>
+          <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
+            {users.map(({ id, role, connections }, index) => {
+              return <Profile key={index} id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} />;
+            })}
+          </div>
+        </div>
+        <div className="flex flex-col xl:flex-row items-center justify-center w-full max-w-full p-[50px]">
+          <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
+            <Statistics data={result?.guilds.toString() ?? '3.500+'} text={language.home.statistics.guilds} />
+            <Statistics data={result?.users.toString() ?? '750.000+'} text={language.home.statistics.users} />
+            <Statistics data={result?.commands.toString() ?? '40+'} text={language.home.statistics.commands} />
+          </div>
         </div>
       </div>
       <footer className="flex sticky top-0 border-t border-purple-600 justify-center px-4 p-5">

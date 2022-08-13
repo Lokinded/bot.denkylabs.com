@@ -22,6 +22,11 @@ export const indexContent = {
         invite: 'Invite Denky',
         support: 'Support Server',
       },
+      statistics: {
+        guilds: 'Guilds',
+        users: 'Users',
+        commands: 'Commands',
+      },
     },
     functions: {
       title: 'Main functions',
@@ -78,6 +83,11 @@ export const indexContent = {
       buttons: {
         invite: 'Convide o Denky',
         support: 'Servidor de Suporte',
+      },
+      statistics: {
+        guilds: 'Servidores',
+        users: 'Usuários',
+        commands: 'Comandos',
       },
     },
     functions: {
