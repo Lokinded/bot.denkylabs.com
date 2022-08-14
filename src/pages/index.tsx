@@ -8,12 +8,12 @@ import NavBar from '../components/NavBar';
 import Statistics from '../components/Statistics';
 import { Props } from '../types';
 import { users } from '../users';
-import { formatLanguage, getApiData } from '../utils';
+import { FormatLanguage, GetApiData } from '../utils';
 import { parseUser } from '../utils/parseUser';
 
 export default function IndexRoute(props: Props) {
-  const language = formatLanguage();
-  const result = getApiData();
+  const language = FormatLanguage();
+  const result = GetApiData();
 
   return (
     <main className="w-full max-w-full max-h-full h-full flex-col overflow-y-auto">
@@ -40,12 +40,12 @@ export default function IndexRoute(props: Props) {
         </div>
       </div>
       <div className="flex flex-row xl:pt-2 xl:pl-8 pl-4 xl:px-8 xl:top-8 xl:bottom pt-4">
-        <Link href="/add">
+        <Link href="/add" passHref>
           <button className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-600 text-xl font-semibold">
             {language.home.buttons.invite}
           </button>
         </Link>
-        <Link href="/support">
+        <Link href="/support" passHref>
           <button className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-[#2c2f33] rounded-lg focus:shadow-outlin text-xl font-semibold">{language.home.buttons.support}</button>
         </Link>
       </div>

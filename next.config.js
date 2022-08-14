@@ -40,11 +40,6 @@ const nextConfig = {
         destination: "https://github.com/denkylabs/denkybot",
         permanent: false
       },
-      {
-        source: '/dashboard',
-        destination: '/api/oauth',
-        permanent: false
-      }
     ];
   }
 };

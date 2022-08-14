@@ -11,7 +11,7 @@ Denky is a brazilian [Discord](https://discord.com) bot, built with [Node.js](ht
 
 ### Deploy this Website using Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/denkylabs/denkybot-website)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/denkylabs/bot.denkylabs.com)
 
 ### Manually
 
@@ -24,4 +24,3 @@ Denky is a brazilian [Discord](https://discord.com) bot, built with [Node.js](ht
 ## License
 
 This project is licensed under the [GPL-3.0](LICENSE) license.
-

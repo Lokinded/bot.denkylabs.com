@@ -3,6 +3,9 @@ export const indexContent = {
     navBar: {
       buttons: {
         home: 'Home',
+        support: 'Support',
+        vote: 'Vote',
+        login: 'Login',
       },
     },
     home: {
@@ -35,14 +38,6 @@ export const indexContent = {
     },
     team: {
       title: 'Team',
-      card: {
-        spotify: 'Listening on Spotify',
-        spotifyMusicAuthor: 'by',
-        game: 'Playing a game',
-      },
-    },
-    utils: {
-      formatTimestamp: 'elapsed',
     },
     footer: {
       description: 'The best Discord bot to improve and boost your Discord server',
@@ -63,6 +58,9 @@ export const indexContent = {
     navBar: {
       buttons: {
         home: 'Início',
+        support: 'Suporte',
+        vote: 'Votar',
+        login: 'Fazer Login',
       },
     },
     home: {
@@ -95,14 +93,6 @@ export const indexContent = {
     },
     team: {
       title: 'Equipe',
-      card: {
-        spotify: 'Ouvindo no spotify',
-        spotifyMusicAuthor: 'por',
-        game: 'Jogando',
-      },
-    },
-    utils: {
-      formatTimestamp: 'decorridos',
     },
     footer: {
       description: 'O melhor bot do Discord para melhorar e impulsionar o seu servidor',

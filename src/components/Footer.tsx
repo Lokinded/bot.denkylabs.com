@@ -1,10 +1,11 @@
 import Image from 'next/future/image';
 import Link from 'next/link';
 import logo from '../../public/denky_logo_566x566.png';
-import { formatLanguage } from '../utils';
+import { FormatLanguage } from '../utils';
 
 export default function Footer() {
-  const language = formatLanguage();
+  const language = FormatLanguage();
+
   return (
     <div className="flex flex-row items-center w-full">
       <div className="md:flex md:justify-between flex-row items-center w-full">

@@ -43,4 +43,13 @@ export const users = [
       email: 'adg@denkylabs.com',
     },
   },
+  {
+    id: '431768491759239211', // Jon4s,
+    role: ['Front-end Developer'],
+    connections: {
+      github: 'https://github.com/itsjon4s',
+      spotify: 'https://open.spotify.com/user/0obnn3etn7vr9mafxwc0cfbvl',
+      email: 'jon4s@denkylabs.com',
+    },
+  },
 ];

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Props } from '../types';
-import { formatLanguage } from '../utils';
+import { FormatLanguage } from '../utils';
 
 export function Avatar(userId?: string, userAvatar?: string, userDiscriminator?: string) {
   if (!userId || !userAvatar || !userDiscriminator) return 'https://cdn.discordapp.com/embed/avatars/0.png';
@@ -11,7 +11,7 @@ export function Avatar(userId?: string, userAvatar?: string, userDiscriminator?:
   return `https://cdn.discordapp.com/avatars/${userId}/${userAvatar}.${userAvatar.startsWith('a_') ? 'gif' : 'png'}`;
 }
 
-function getAuthProfile(props: Props) {
+function GetAuthProfile(props: Props) {
   return (
     <div className="flex flex-row space-x-2">
       <Image className="w-7 h-7 rounded-full items-start" width={28} height={28} src={Avatar(props.user?.id, props.user?.avatar, props.user?.discriminator)} />
@@ -24,7 +24,7 @@ function getAuthProfile(props: Props) {
 }
 
 export default function NavBar(props: Props) {
-  const language = formatLanguage();
+  const language = FormatLanguage();
   const [navbar, setNavbar] = useState(false);
 
   return (
@@ -62,17 +62,17 @@ export default function NavBar(props: Props) {
               </li>
               <li className="text-blurple font-semibold hover:text-purple-400">
                 <Link href="/support">
-                  <a>Support</a>
+                  <a>{language.navBar.buttons.support}</a>
                 </Link>
               </li>
               <li className="text-blurple font-semibold hover:text-purple-400">
                 <Link href="/vote">
-                  <a>Vote</a>
+                  <a>{language.navBar.buttons.vote}</a>
                 </Link>
               </li>
               <li className="md:bg-[1D1E28] md:border-2 border-purple-600 md:px-3 md:py-2 rounded-lg font-semibold hover:text-purple-400">
-                <Link href="/dashboard">
-                  <a>{props.user && props.user.username ? getAuthProfile(props) : 'Login'}</a>
+                <Link href="/api/oauth">
+                  <a>{props.user && props.user.username ? GetAuthProfile(props) : language.navBar.buttons.login}</a>
                 </Link>
               </li>
             </ul>

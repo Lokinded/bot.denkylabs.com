@@ -6,7 +6,7 @@ import { config } from '../../utils/config';
 
 const OAUTH_PARAMS = new URLSearchParams({
   client_id: config.clientId,
-  redirect_uri: `http://localhost:3000/api/oauth`,
+  redirect_uri: `${config.apiUrl}/api/oauth`,
   response_type: 'code',
   scope: ['identify', 'guilds'].join(' '),
 }).toString();
@@ -26,7 +26,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     client_id: config.clientId,
     client_secret: config.clientSecret,
     grant_type: 'authorization_code',
-    redirect_uri: `http://localhost:3000/api/oauth`,
+    redirect_uri: `${config.apiUrl}/api/oauth`,
     code,
     scope: ['identify', 'guilds'].join(' '),
   }).toString();
