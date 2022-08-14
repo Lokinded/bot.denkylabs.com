@@ -11,7 +11,7 @@ function validateEnv<T extends string = string>(key: keyof NodeJS.ProcessEnv, de
 }
 
 export const config = {
-  cookieName: 'token',
+  cookieName: 'DENKY_WEB_SESSION',
   clientId: validateEnv('CLIENT_ID'),
   clientSecret: validateEnv('CLIENT_SECRET'),
   apiUrl: validateEnv('API_URL', 'http://localhost:3000'),
