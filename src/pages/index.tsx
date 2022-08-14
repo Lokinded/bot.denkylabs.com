@@ -18,12 +18,11 @@ export default function IndexRoute(props: Props) {
   return (
     <main className="w-full max-w-full max-h-full h-full flex-col overflow-y-auto">
       <Head>
-        <html lang="en-US" />
         <meta name="theme-color" content="#4e5d94" />
         <title>Denky</title>
         <meta name="description" content="Denky is a multipurpose bot ready to improve and boost your Discord server." />
         <link rel="shortcut icon" href="/denky_logo_566x566.png" />
-        <meta content="/denky_logo_566x566.png" property="og:image"></meta>
+        <meta content="/denky_logo_566x566.png" property="og:image" />
       </Head>
       <Head>
         <html lang="pt-BR" />
@@ -31,7 +30,7 @@ export default function IndexRoute(props: Props) {
         <title>Denky</title>
         <meta name="description" content="Denky é um bot multifunções pronto para melhorar e impulsionar o seu servidor do Discord." />
         <link rel="shortcut icon" href="/denky_logo_566x566.png" />
-        <meta content="/denky_logo_566x566.png" property="og:image"></meta>
+        <meta content="/denky_logo_566x566.png" property="og:image" />
       </Head>
       <div className="flex h-[65px] sticky top-0 border-b border-purple-600 justify-center px-2">
         <NavBar user={props.user} />
