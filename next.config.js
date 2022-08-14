@@ -5,6 +5,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true
   },
+  images: {
+    domains: ["cdn.discordapp.com"]
+  },
   cleanDistDir: true,
   experimental: {
     images: {
@@ -35,6 +38,11 @@ const nextConfig = {
       {
         source: "/github",
         destination: "https://github.com/denkylabs/denkybot",
+        permanent: false
+      },
+      {
+        source: '/dashboard',
+        destination: '/api/oauth',
         permanent: false
       }
     ];

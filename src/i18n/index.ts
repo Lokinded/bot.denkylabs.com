@@ -2,9 +2,7 @@ export const indexContent = {
   'en-US': {
     navBar: {
       buttons: {
-        add: 'Add',
-        support: 'Support',
-        vote: 'Vote',
+        home: 'Home',
       },
     },
     home: {
@@ -64,9 +62,7 @@ export const indexContent = {
   'pt-BR': {
     navBar: {
       buttons: {
-        add: 'Add',
-        support: 'Suporte',
-        vote: 'Votar',
+        home: 'Início',
       },
     },
     home: {

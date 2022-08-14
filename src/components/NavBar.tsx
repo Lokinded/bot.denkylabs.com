@@ -1,9 +1,29 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../../public/denky_logo_566x566.png';
+import { Props } from '../types';
 import { formatLanguage } from '../utils';
 
-export default function NavBar() {
+export function Avatar(userId?: string, userAvatar?: string, userDiscriminator?: string) {
+  if (!userId || !userAvatar || !userDiscriminator) return 'https://cdn.discordapp.com/embed/avatars/0.png';
+
+  if (!userAvatar) return `https://cdn.discordapp.com/embed/avatars/${Number(userDiscriminator) % 5}.png`;
+  return `https://cdn.discordapp.com/avatars/${userId}/${userAvatar}.${userAvatar.startsWith('a_') ? 'gif' : 'png'}`;
+}
+
+function getAuthProfile(props: Props) {
+  return (
+    <div className="flex flex-row space-x-2">
+      <Image className="w-7 h-7 rounded-full items-start" width={28} height={28} src={Avatar(props.user?.id, props.user?.avatar, props.user?.discriminator)} />
+      <header className="text-xl font-bold leading-6">
+        <span>{props.user?.username}</span>
+        <span className="font-normal text-gray-400 text-lg">#{props.user?.discriminator}</span>
+      </header>
+    </div>
+  );
+}
+
+export default function NavBar(props: Props) {
   const language = formatLanguage();
 
   return (
@@ -14,16 +34,12 @@ export default function NavBar() {
         </div>
 
         <Link href="/" passHref>
-          <a className="text-blurple font-semibold hover:text-purple-400">Home</a>
-        </Link>
-
-        <Link href="/support" passHref>
-          <a className="text-blurple font-semibold hover:text-purple-400">{language.navBar.buttons.support}</a>
+          <a className="text-blurple font-semibold hover:text-purple-400">{language.navBar.buttons.home}</a>
         </Link>
       </div>
       <div className="flex flex-row space-x-8">
-        <a href="/add" className="bg-[1D1E28] border-2 border-purple-600 px-6 py-2 rounded-lg font-semibold text-white hover:bg-purple-600 transition-all duration-300 delay-100">
-          {language.navBar.buttons.add}
+        <a href="/dashboard" className="bg-[1D1E28] border-2 border-purple-600 px-3 xl:px-4 py-2 rounded-lg font-semibold text-white">
+          {props.user && props.user.username ? getAuthProfile(props) : 'Login'}
         </a>
       </div>
     </div>

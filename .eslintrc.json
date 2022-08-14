@@ -59,6 +59,7 @@
       }
     ],
     "no-bitwise": "off",
+    "camelcase": "off",
     "no-restricted-syntax": "off",
     "no-restricted-globals": "off",
     "no-continue": "off",

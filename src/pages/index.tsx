@@ -1,3 +1,4 @@
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Card from '../components/Card';
@@ -5,10 +6,12 @@ import Profile from '../components/discord/Profile';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import Statistics from '../components/Statistics';
+import { Props } from '../types';
 import { users } from '../users';
 import { formatLanguage, getApiData } from '../utils';
+import { parseUser } from '../utils/parseUser';
 
-export default function IndexRoute() {
+export default function IndexRoute(props: Props) {
   const language = formatLanguage();
   const result = getApiData();
 
@@ -21,7 +24,7 @@ export default function IndexRoute() {
         <link rel="shortcut icon" href="/denky_logo_566x566.png" />
       </Head>
       <div className="flex h-[65px] sticky top-0 border-b border-purple-600 justify-center px-5">
-        <NavBar />
+        <NavBar user={props.user} />
       </div>
       <div className="xl:pt-20 xl:pl-10 pt-7 pl-6">
         <h1 className="font-bold text-4xl text-purple-500">{language.home.title}</h1>
@@ -76,3 +79,18 @@ export default function IndexRoute() {
     </main>
   );
 }
+
+// eslint-disable-next-line
+export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
+  const user = parseUser(ctx);
+
+  if (!user) {
+    return {
+      props: {
+        user: null,
+      },
+    };
+  }
+
+  return { props: { user } };
+};
