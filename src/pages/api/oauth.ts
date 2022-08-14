@@ -1,7 +1,6 @@
 import { serialize } from 'cookie';
 import { sign } from 'jsonwebtoken';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { DiscordUser } from '../../types';
 import { config } from '../../utils/config';
 
 const OAUTH_PARAMS = new URLSearchParams({
@@ -41,11 +40,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.redirect(`https://discord.com/api/oauth2/authorize?${OAUTH_PARAMS}`);
   }
 
-  const me: DiscordUser | { unauthorized: true } = await fetch('http://discord.com/api/users/@me', {
+  const me = await fetch('http://discord.com/api/users/@me', {
     headers: { Authorization: `${token_type} ${access_token}` },
   }).then(response => response.json());
 
-  if (!('id' in me)) {
+  if (!me.id) {
     return res.redirect(`https://discord.com/api/oauth2/authorize?${OAUTH_PARAMS}`);
   }
 
