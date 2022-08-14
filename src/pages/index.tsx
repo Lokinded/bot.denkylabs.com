@@ -24,14 +24,6 @@ export default function IndexRoute(props: Props) {
         <link rel="shortcut icon" href="/denky_logo_566x566.png" />
         <meta content="/denky_logo_566x566.png" property="og:image" />
       </Head>
-      <Head>
-        <html lang="pt-BR" />
-        <meta name="theme-color" content="#4e5d94" />
-        <title>Denky</title>
-        <meta name="description" content="Denky é um bot multifunções pronto para melhorar e impulsionar o seu servidor do Discord." />
-        <link rel="shortcut icon" href="/denky_logo_566x566.png" />
-        <meta content="/denky_logo_566x566.png" property="og:image" />
-      </Head>
       <div className="flex h-[65px] sticky top-0 border-b border-purple-600 justify-center px-2">
         <NavBar user={props.user} />
       </div>
