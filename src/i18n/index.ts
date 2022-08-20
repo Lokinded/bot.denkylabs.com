@@ -6,6 +6,9 @@ export const indexContent = {
         support: 'Support',
         vote: 'Vote',
         login: 'Login',
+        logout: 'Logout',
+        dashboard: 'Dashboard',
+        add: 'Add',
       },
     },
     home: {
@@ -61,6 +64,9 @@ export const indexContent = {
         support: 'Suporte',
         vote: 'Votar',
         login: 'Fazer Login',
+        logout: 'Sair',
+        dashboard: 'Painel de Controle',
+        add: 'Adicionar',
       },
     },
     home: {

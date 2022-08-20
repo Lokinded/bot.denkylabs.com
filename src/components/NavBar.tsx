@@ -1,6 +1,7 @@
-import Image from 'next/image';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
-import { useState } from 'react';
+import { Fragment } from 'react';
 import { Props } from '../types';
 import { FormatLanguage } from '../utils';
 
@@ -11,74 +12,113 @@ export function Avatar(userId?: string, userAvatar?: string, userDiscriminator?:
   return `https://cdn.discordapp.com/avatars/${userId}/${userAvatar}.${userAvatar.startsWith('a_') ? 'gif' : 'png'}`;
 }
 
-function GetAuthProfile(props: Props) {
-  return (
-    <div className="flex flex-row space-x-2">
-      <Image className="w-7 h-7 rounded-full items-start" width={28} height={28} src={Avatar(props.user?.id, props.user?.avatar, props.user?.discriminator)} />
-      <header className="text-xl font-bold leading-6">
-        <span>{props.user?.username}</span>
-        <span className="font-normal text-gray-400 text-lg">#{props.user?.discriminator}</span>
-      </header>
-    </div>
-  );
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function NavBar(props: Props) {
   const language = FormatLanguage();
-  const [navbar, setNavbar] = useState(false);
+
+  const navigation = [
+    { name: language.navBar.buttons.home, href: '/', current: true },
+    { name: language.navBar.buttons.add, href: '/add', current: true },
+    { name: language.navBar.buttons.support, href: '/support', current: true },
+    { name: language.navBar.buttons.vote, href: '/vote', current: true },
+  ];
 
   return (
-    <nav className="w-full">
-      <div className="justify-between md:items-center md:flex">
-        <div>
-          <div className="flex items-center justify-between py-2 px-2 md:px-5 md:block">
-            <Image className="rounded-lg" height="50px" width="50px" src="/denky_logo_566x566.png" />
-            <div className="md:hidden">
-              <button className="p-2 rounded-md outline-none" onClick={() => setNavbar(!navbar)}>
-                {navbar ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                      fillRule="evenodd"
-                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                )}
-              </button>
+    <Disclosure as="nav" className="w-full">
+      {({ open }) => (
+        <>
+          <div className="max-w-7xl mx-auto xl:max-w-full xl:px-6">
+            <div className="relative flex items-center justify-between h-16">
+              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  {open ? <XIcon className="block h-6 w-6" aria-hidden="true" /> : <MenuIcon className="block h-6 w-6" aria-hidden="true" />}
+                </Disclosure.Button>
+              </div>
+              <div className="flex-1 flex items-center justify-center sm:justify-start">
+                <div className="flex-shrink-0 flex items-center">
+                  <img className="rounded-lg block lg:hidden h-12 w-auto" src="/denky_logo_566x566.png" />
+                  <img className="rounded-lg hidden lg:block h-12 w-auto" src="/denky_logo_566x566.png" />
+                </div>
+                <div className="hidden sm:block sm:ml-6">
+                  <div className="flex space-x-4">
+                    {navigation.map(item => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className={classNames(item.current ? ' text-white' : 'text-gray-300', 'px-3 py-2 rounded-md text-sm font-medium')}
+                        aria-current={item.current ? 'page' : undefined}
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <Menu as="div" className="ml-3 relative">
+                  <div>
+                    <Menu.Button className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                      {props.user ? (
+                        <img className="h-8 w-8 rounded-full" src={Avatar(props.user?.id, props.user?.avatar, props.user?.discriminator)} />
+                      ) : (
+                        <div className="border-2 border-purple-600 rounded-lg px-3 py-2 hover:bg-purple-600 transition-all duration-300 delay-100">
+                          <Link href="/api/oauth">
+                            <a>{language.navBar.buttons.login}</a>
+                          </Link>
+                        </div>
+                      )}
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a href="/dashboard" className={classNames(active ? 'bg-purple-600 rounded-lg py-2' : '', 'block px-4 py-2 text-sm text-white')}>
+                            {language.navBar.buttons.dashboard}
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a href="api/logout" className={classNames(active ? 'bg-purple-600 rounded-lg py-2' : '', 'block px-4 py-2 text-sm text-white')}>
+                            {language.navBar.buttons.logout}
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div className={`flex-1 mb-3 md:block md:pb-0 px-2 md:mt-0 ${navbar ? 'block bg-[#111] border-2 rounded-lg border-purple-600' : 'hidden'}`}>
-            <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 p-[1.5rem] md:p-2 ">
-              <li className="text-blurple font-semibold hover:text-purple-400">
-                <Link href="/">
-                  <a>{language.navBar.buttons.home}</a>
-                </Link>
-              </li>
-              <li className="text-blurple font-semibold hover:text-purple-400">
-                <Link href="/support">
-                  <a>{language.navBar.buttons.support}</a>
-                </Link>
-              </li>
-              <li className="text-blurple font-semibold hover:text-purple-400">
-                <Link href="/vote">
-                  <a>{language.navBar.buttons.vote}</a>
-                </Link>
-              </li>
-              <li className="md:bg-[1D1E28] md:border-2 border-purple-600 md:px-3 md:py-2 rounded-lg font-semibold hover:text-purple-400">
-                <Link href="/api/oauth">
-                  <a>{props.user && props.user.username ? GetAuthProfile(props) : language.navBar.buttons.login}</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+          <Disclosure.Panel className="sm:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-800 rounded-lg text-sm">
+              {navigation.map(item => (
+                <Disclosure.Button
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  className={classNames(item.current ? 'text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium')}
+                  aria-current={item.current ? 'page' : undefined}
+                >
+                  {item.name}
+                </Disclosure.Button>
+              ))}
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
   );
 }

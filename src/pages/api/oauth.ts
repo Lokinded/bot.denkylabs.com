@@ -21,19 +21,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (!code || typeof code !== 'string') return res.redirect(`https://discord.com/api/oauth2/authorize?${OAUTH_PARAMS}`);
 
-  const body = new URLSearchParams({
-    client_id: config.clientId,
-    client_secret: config.clientSecret,
-    grant_type: 'authorization_code',
-    redirect_uri: `${config.apiUrl}/api/oauth`,
-    code,
-    scope: ['identify', 'guilds'].join(' '),
-  }).toString();
-
   const { access_token = null, token_type = 'Bearer' } = await fetch('https://discord.com/api/oauth2/token', {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     method: 'POST',
-    body,
+    body: new URLSearchParams({
+      client_id: config.clientId,
+      client_secret: config.clientSecret,
+      grant_type: 'authorization_code',
+      redirect_uri: `${config.apiUrl}/api/oauth`,
+      code,
+      scope: ['identify', 'guilds'].join(' '),
+    }).toString(),
   }).then(response => response.json());
 
   if (!access_token || typeof access_token !== 'string') {
@@ -50,17 +48,22 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const token = sign(me, config.jwtSecret, { expiresIn: '24h' });
 
-  res.setHeader(
-    'Set-Cookie',
+  res.setHeader('Set-Cookie', [
     serialize(config.cookieName, token, {
       httpOnly: true,
       secure: process.env.NODE_ENV !== 'development',
       sameSite: 'lax',
       path: '/',
     }),
-  );
+    serialize('DENKY_WEB_TOKEN', access_token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== 'development',
+      sameSite: 'lax',
+      path: '/',
+    }),
+  ]);
 
-  res.redirect('/');
+  res.redirect('/dashboard');
 
   return res.end();
 };
