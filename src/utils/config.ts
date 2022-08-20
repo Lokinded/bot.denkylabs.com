@@ -4,7 +4,7 @@ function validateEnv<T extends string = string>(key: keyof NodeJS.ProcessEnv, de
   if (!value) {
     if (typeof defaultValue !== 'undefined') return defaultValue;
 
-    throw new Error(`${key} is not defined in environment variables`);
+    throw new Error(`${key.toString()} is not defined in environment variables`);
   }
 
   return value;

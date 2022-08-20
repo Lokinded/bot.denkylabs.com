@@ -42,12 +42,14 @@ export default function IndexRoute(props: Props) {
       </div>
       <div className="flex flex-row xl:pt-2 xl:pl-8 pl-4 xl:px-8 xl:top-8 xl:bottom pt-4">
         <Link href="/add" passHref>
-          <button className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-600 text-xl font-semibold">
+          <button type="button" className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-600 text-xl font-semibold">
             {language.home.buttons.invite}
           </button>
         </Link>
         <Link href="/support" passHref>
-          <button className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-[#2c2f33] rounded-lg focus:shadow-outlin text-xl font-semibold">{language.home.buttons.support}</button>
+          <button type="button" className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-[#2c2f33] rounded-lg focus:shadow-outlin text-xl font-semibold">
+            {language.home.buttons.support}
+          </button>
         </Link>
       </div>
       <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
@@ -61,8 +63,8 @@ export default function IndexRoute(props: Props) {
         <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
           <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.team.title}</span>
           <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
-            {users.map(({ id, role, connections }, index) => {
-              return <Profile key={index} id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} />;
+            {users.map(({ id, role, connections }) => {
+              return <Profile id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} />;
             })}
           </div>
         </div>
