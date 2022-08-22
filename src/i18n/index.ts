@@ -56,6 +56,14 @@ export const indexContent = {
         contact: 'Contact',
       },
     },
+    dashboard: {
+      navigation: {
+        home: 'Home',
+      },
+      home: {
+        welcome: 'Welcome to the dashboard',
+      },
+    },
   },
   'pt-BR': {
     navBar: {
@@ -112,6 +120,14 @@ export const indexContent = {
         privacy: 'Política de Privacidade',
         terms: 'Termos de Uso',
         contact: 'Contato',
+      },
+    },
+    dashboard: {
+      navigation: {
+        home: 'Início',
+      },
+      home: {
+        welcome: 'Bem-vindo ao meu painel de controle',
       },
     },
   },

@@ -64,7 +64,7 @@ export default function IndexRoute(props: Props) {
           <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.team.title}</span>
           <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
             {users.map(({ id, role, connections }) => {
-              return <Profile id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} />;
+              return <Profile key={id} id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} />;
             })}
           </div>
         </div>
