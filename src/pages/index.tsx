@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
+import Servers from '../components/Servers';
 import Statistics from '../components/Statistics';
 import { Props } from '../types';
 import { FormatLanguage, GetApiData } from '../utils';
@@ -56,18 +57,25 @@ export default function IndexRoute(props: Props) {
 
       <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
         <span className="flex flex-row justify-center font-extrabold mt-[30px] text-3xl">{language.functions.title}</span>
-        <div className="items-center space-y-5 lg:space-y-0 flex-col lg:flex-row h-full w-full max-w-full flex lg:justify-center pt-[30px]">
+        <div className="items-center space-y-5 lg:space-y-0 flex-col lg:flex-row h-full w-full max-w-full flex lg:justify-center pt-12">
           <Card title="AntiSpam" text={language.functions.antispam} />
           <Card title="Lockdown" text={language.functions.lockdown} />
           <Card title="Captcha" text={language.functions.captcha} />
           <Card title="AntiRaid" text={language.functions.antiraid} />
         </div>
-        <div className="flex flex-col xl:flex-row items-center justify-center w-full max-w-full p-[50px]">
-          <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
+        <div className="flex flex-col xl:flex-row items-center justify-center w-full max-w-full p-12">
+          <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-12">
             <Statistics data={result?.guilds.toString() ?? '3.500+'} text={language.home.statistics.guilds} />
             <Statistics data={result?.users.toString() ?? '750.000+'} text={language.home.statistics.users} />
             <Statistics data={result?.commands.toString() ?? '40+'} text={language.home.statistics.commands} />
           </div>
+        </div>
+      </div>
+
+      <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[30px]">
+        <span className="flex flex-row justify-center font-extrabold text-3xl">{language.home.usedBy.title.replace('{servers}', result?.guilds.toString() ?? '3.500+')}</span>
+        <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-12">
+          <Servers />
         </div>
       </div>
 

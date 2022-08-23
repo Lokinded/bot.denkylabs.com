@@ -31,6 +31,9 @@ export const indexContent = {
         users: 'Users',
         commands: 'Commands',
       },
+      usedBy: {
+        title: 'Trusted by {servers} servers',
+      },
     },
     teamPage: {
       title: 'Team',
@@ -99,6 +102,9 @@ export const indexContent = {
         guilds: 'Servidores',
         users: 'Usuários',
         commands: 'Comandos',
+      },
+      usedBy: {
+        title: 'Gerenciado por {servers} servidores',
       },
     },
     teamPage: {

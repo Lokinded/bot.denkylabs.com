@@ -8,11 +8,36 @@ interface ApiProps {
   commands: number;
 }
 
+interface PopularGuildsProps {
+  id: string;
+  name: string;
+  memberCount: number;
+  iconURL: string;
+}
+
 export function GetApiData() {
   const [result, setResult] = useState<ApiProps>();
 
   useMemo(() => {
     fetch('http://localhost:4343/stats', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors',
+    })
+      .then(res => res.json())
+      .catch(() => null)
+      .then(data => setResult(data));
+  }, []);
+
+  return result;
+}
+
+export function GetApiServersData() {
+  const [result, setResult] = useState<PopularGuildsProps[]>();
+
+  useMemo(() => {
+    fetch('http://localhost:4343/popular-guilds', {
       headers: {
         'Content-Type': 'application/json',
       },
