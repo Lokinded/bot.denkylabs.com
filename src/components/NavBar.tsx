@@ -1,6 +1,5 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import Link from 'next/link';
 import { Fragment } from 'react';
 import { Props } from '../types';
 import { FormatLanguage } from '../utils';
@@ -61,7 +60,7 @@ export default function NavBar(props: Props) {
                 {props.user ? (
                   <Menu as="div" className="ml-3 relative">
                     <div>
-                      <Menu.Button className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                      <Menu.Button className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-600">
                         <img className="h-8 w-8 rounded-full" src={Avatar(props.user?.id, props.user?.avatar, props.user?.discriminator)} />
                       </Menu.Button>
                     </div>
@@ -93,11 +92,14 @@ export default function NavBar(props: Props) {
                     </Transition>
                   </Menu>
                 ) : (
-                  <div className="border-2 border-purple-600 rounded-lg px-3 py-2 hover:bg-purple-600 transition-all duration-300 delay-100">
-                    <Link href="/api/oauth">
-                      <a className="font-semibold">{language.navBar.buttons.login}</a>
-                    </Link>
-                  </div>
+                  <a href="/api/oauth">
+                    <button
+                      type="button"
+                      className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-purple-700 hover:bg-purple-600 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                    >
+                      {language.navBar.buttons.login}
+                    </button>
+                  </a>
                 )}
               </div>
             </div>

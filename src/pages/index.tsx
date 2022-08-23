@@ -1,6 +1,5 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
@@ -15,7 +14,7 @@ export default function IndexRoute(props: Props) {
   const result = GetApiData();
 
   return (
-    <main className="w-full max-w-full max-h-full h-full flex-col overflow-y-auto">
+    <main className="flex-col mx-auto overflow-y-auto">
       <Head>
         <meta name="theme-color" content="#4e5d94" />
         <title>Denky</title>
@@ -28,54 +27,49 @@ export default function IndexRoute(props: Props) {
         <NavBar user={props.user} />
       </div>
 
-      <div className="xl:pt-20 xl:pl-10 pt-7 pl-6">
-        <h1 className="font-bold text-4xl text-purple-500">{language.home.title}</h1>
-        <div className="flex flex-col grow text-base pt-3 font-normal">
-          <p>
-            {language.home.description.textOne}
-            <strong> {language.home.description.textStronged} </strong>
-            {language.home.description.textTwo}.
-          </p>
-          <p>
-            {language.home.descriptionTwo.text} <strong>{language.home.descriptionTwo.textStronged}!</strong>
-          </p>
-        </div>
-      </div>
-
-      <div className="flex flex-row xl:pt-2 xl:pl-8 pl-4 xl:px-8 xl:top-8 xl:bottom pt-4">
-        <Link href="/add" passHref>
-          <button type="button" className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-600 text-xl font-semibold">
-            {language.home.buttons.invite}
-          </button>
-        </Link>
-        <Link href="/support" passHref>
-          <button type="button" className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-[#2c2f33] rounded-lg focus:shadow-outlin text-xl font-semibold">
-            {language.home.buttons.support}
-          </button>
-        </Link>
-      </div>
-
-      <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
-        <span className="flex flex-row justify-center font-extrabold mt-[30px] text-3xl">{language.functions.title}</span>
-        <div className="items-center space-y-5 lg:space-y-0 flex-col lg:flex-row h-full w-full max-w-full flex lg:justify-center pt-12">
-          <Card title="AntiSpam" text={language.functions.antispam} />
-          <Card title="Lockdown" text={language.functions.lockdown} />
-          <Card title="Captcha" text={language.functions.captcha} />
-          <Card title="AntiRaid" text={language.functions.antiraid} />
-        </div>
-        <div className="flex flex-col xl:flex-row items-center justify-center w-full max-w-full p-12">
-          <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-12">
-            <Statistics data={result?.guilds.toString() ?? '3.500+'} text={language.home.statistics.guilds} />
-            <Statistics data={result?.users.toString() ?? '750.000+'} text={language.home.statistics.users} />
-            <Statistics data={result?.commands.toString() ?? '40+'} text={language.home.statistics.commands} />
+      <div className="sm:text-center lg:text-left xl:pt-20 xl:pl-10 pt-6 pl-1">
+        <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+          <span className="block xl:inline text-purple-600">{language.home.title}</span>
+        </h1>
+        <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">{language.home.description.text}</p>
+        <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+          <div className="rounded-md shadow">
+            <a
+              href="/add"
+              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-700 hover:bg-purple-600 transition-all duration-300 delay-100 md:py-4 md:text-lg md:px-10"
+            >
+              {language.home.buttons.invite}
+            </a>
+          </div>
+          <div className="mt-3 sm:mt-0 sm:ml-3">
+            <a
+              href="/support"
+              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2c2f33] hover:bg-gray-800 transition-all duration-300 delay-100 md:py-4 md:text-lg md:px-10"
+            >
+              {language.home.buttons.support}
+            </a>
           </div>
         </div>
       </div>
 
-      <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[30px]">
-        <span className="flex flex-row justify-center font-extrabold text-3xl">{language.home.usedBy.title.replace('{servers}', result?.guilds.toString() ?? '3.500+')}</span>
-        <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-12">
-          <Servers />
+      <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full">
+        <div className="mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+          <Card />
+        </div>
+
+        <div className="mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+          <Statistics />
+        </div>
+      </div>
+
+      <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full">
+        <div className="mx-auto py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+          <h2 className="text-3xl text-center font-extrabold text-white sm:text-4xl">
+            <span className="block">{language.home.usedBy.title.replace('{servers}', result?.guilds.toString() ?? '3.500')}</span>
+          </h2>
+          <div className="mt-8 w-full inline-flex items-center justify-center text-base font-medium rounded-md sm:w-auto">
+            <Servers />
+          </div>
         </div>
       </div>
 

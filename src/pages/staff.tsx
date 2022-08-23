@@ -20,12 +20,10 @@ export default function StaffRoute(props: Props) {
         <div className="space-y-12">
           <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{language.teamPage.title}</h2>
-            <p className="text-xl text-gray-500">
-              Por trás do Denky existem várias pessoas que trabalham arduamente para fazer com que ele funcione todos os dias 24 horas por dia, e para trazer mais melhorias para ele
-            </p>
+            <p className="text-xl text-gray-500">{language.teamPage.description}</p>
           </div>
           <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Donos do Denky</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{language.teamPage.owners}</h2>
           </div>
           <ul role="list" className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
             {owners.map(({ id, connections }) => {
@@ -34,7 +32,7 @@ export default function StaffRoute(props: Props) {
           </ul>
 
           <div className="mt-4 space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Desenvolvedores</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{language.teamPage.developers}</h2>
           </div>
           <ul role="list" className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
             {developers.map(({ id, connections }) => {

@@ -13,6 +13,7 @@ interface PopularGuildsProps {
   name: string;
   memberCount: number;
   iconURL: string;
+  inviteURL: string;
 }
 
 export function GetApiData() {

@@ -1,14 +1,55 @@
-interface CardProps {
-  text: string;
-  title: string;
-}
+import { ChatIcon, CheckCircleIcon, MoonIcon, UserGroupIcon } from '@heroicons/react/outline';
+import { FormatLanguage } from '../utils';
 
-export default function Card(props: CardProps) {
+export default function Card() {
+  const language = FormatLanguage();
+
+  const features = [
+    {
+      name: 'AntiSpam',
+      description: language.functions.antispam,
+      icon: ChatIcon,
+    },
+    {
+      name: 'Lockdown',
+      description: language.functions.lockdown,
+      icon: MoonIcon,
+    },
+    {
+      name: 'Captcha',
+      description: language.functions.captcha,
+      icon: CheckCircleIcon,
+    },
+    {
+      name: 'AntiRaid',
+      description: language.functions.antiraid,
+      icon: UserGroupIcon,
+    },
+  ];
+
   return (
-    <div className="w-72 h-60 xl:w-full xl:h-[260px] bg-[#1D1E28] border-4 border-solid border-purple-600 rounded-lg break-words xl:ml-6 md:ml-5 xl:hover:bg-purple-600 xl:transition-all xl:duration-300 xl:delay-100">
-      <div className="p-[30px] relative items-center">
-        <h5 className="text-3xl text-blurple font-semibold">{props.title}</h5>
-        <span className="md:text-sm lg:text-base xl:text-lg font-extralight">{props.text}</span>
+    <div className="py-12 border-2 border-purple-600 top-0 sticky rounded-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lg:text-center">
+          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-purple-600 sm:text-4xl">{language.functions.title}</p>
+          <p className="mt-4 max-w-2xl text-xl text-gray-100 lg:mx-auto">{language.functions.description}</p>
+        </div>
+
+        <div className="mt-10">
+          <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+            {features.map(feature => (
+              <div key={feature.name} className="relative">
+                <dt>
+                  <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple-600 text-white">
+                    <feature.icon className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <p className="ml-16 text-lg leading-6 font-medium text-purple-600">{feature.name}</p>
+                </dt>
+                <dd className="mt-2 ml-16 text-base text-gray-500">{feature.description}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </div>
   );

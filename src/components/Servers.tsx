@@ -5,7 +5,22 @@ const defaultServers = [
     id: '732311394879406192',
     name: 'Decorations For Servers! ; #50K',
     iconURL: 'https://cdn.discordapp.com/icons/732311394879406192/a_9ef4d2666675cfe7019b36eeb4206663.gif',
-    memberCount: '+4,500',
+    memberCount: '+ 45,971',
+    inviteURL: 'https://discord.gg/decorations',
+  },
+  {
+    id: '732311394879406192',
+    name: 'Decorations For Servers! ; #50K',
+    iconURL: 'https://cdn.discordapp.com/icons/732311394879406192/a_9ef4d2666675cfe7019b36eeb4206663.gif',
+    memberCount: '+ 45,971',
+    inviteURL: 'https://discord.gg/decorations',
+  },
+  {
+    id: '732311394879406192',
+    name: 'Decorations For Servers! ; #50K',
+    iconURL: 'https://cdn.discordapp.com/icons/732311394879406192/a_9ef4d2666675cfe7019b36eeb4206663.gif',
+    memberCount: '+ 45,971',
+    inviteURL: 'https://discord.gg/decorations',
   },
 ];
 
@@ -16,7 +31,7 @@ export default function Servers() {
     <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {data ? (
         <>
-          {data?.map(({ id, iconURL, name, memberCount }) => (
+          {data?.map(({ id, iconURL, name, memberCount, inviteURL }) => (
             <li key={id} className="col-span-1 rounded-lg border-2 border-purple-600 shadow divide-y divide-gray-200">
               <div className="w-full flex items-center justify-between p-6 space-x-6">
                 {iconURL ? (
@@ -28,11 +43,17 @@ export default function Servers() {
                     </svg>
                   </span>
                 )}
-                <div className="flex-1 truncate">
+                <div className="flex-1 flex-col truncate">
                   <div className="flex items-center space-x-3">
-                    <h3 className="text-gray-100 text-sm font-medium truncate">{name}</h3>
+                    {inviteURL ? (
+                      <a href={inviteURL}>
+                        <h3 className="text-gray-100 text-sm hover:text-gray-600 transition-all duration-300 delay-100 font-medium truncate">{name}</h3>
+                      </a>
+                    ) : (
+                      <h3 className="text-gray-100 text-sm font-medium truncate">{name}</h3>
+                    )}
+                    <p className="mt-1 text-gray-500 text-sm truncate">{memberCount}</p>
                   </div>
-                  <p className="mt-1 text-gray-500 text-sm truncate">{memberCount}</p>
                 </div>
               </div>
             </li>
@@ -40,7 +61,7 @@ export default function Servers() {
         </>
       ) : (
         <>
-          {defaultServers?.map(({ id, iconURL, name, memberCount }) => (
+          {defaultServers?.map(({ id, iconURL, name, memberCount, inviteURL }) => (
             <li key={id} className="col-span-1 rounded-lg border-2 border-purple-600 shadow divide-y divide-gray-200">
               <div className="w-full flex items-center justify-between p-6 space-x-6">
                 {iconURL ? (
@@ -54,7 +75,13 @@ export default function Servers() {
                 )}
                 <div className="flex-1 truncate">
                   <div className="flex items-center space-x-3">
-                    <h3 className="text-gray-100 text-sm font-medium truncate">{name}</h3>
+                    {inviteURL ? (
+                      <a href={inviteURL}>
+                        <h3 className="text-gray-100 text-sm hover:text-gray-600 transition-all duration-300 delay-100 font-medium truncate">{name}</h3>
+                      </a>
+                    ) : (
+                      <h3 className="text-gray-100 text-sm font-medium truncate">{name}</h3>
+                    )}
                   </div>
                   <p className="mt-1 text-gray-500 text-sm truncate">{memberCount}</p>
                 </div>
