@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import Card from '../components/Card';
+import Features from '../components/Features';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import Servers from '../components/Servers';
@@ -53,8 +53,8 @@ export default function IndexRoute(props: Props) {
       </div>
 
       <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full">
-        <div className="mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-          <Card />
+        <div className="py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+          <Features />
         </div>
 
         <div className="mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
@@ -65,7 +65,7 @@ export default function IndexRoute(props: Props) {
       <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full">
         <div className="mx-auto py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
           <h2 className="text-3xl text-center font-extrabold text-white sm:text-4xl">
-            <span className="block">{language.home.usedBy.title.replace('{servers}', result?.guilds.toString() ?? '3.500')}</span>
+            <span className="block">{language.home.usedBy.title.replace('{servers}', result?.guilds.toString() ?? '3,500')}</span>
           </h2>
           <div className="mt-8 w-full inline-flex items-center justify-center text-base font-medium rounded-md sm:w-auto">
             <Servers />
@@ -78,8 +78,11 @@ export default function IndexRoute(props: Props) {
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
             <span className="block">{language.cta.title}</span>
           </h2>
-          <a href="/dashboard" className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 sm:w-auto">
-            Adicionar ao Discord
+          <a
+            href="/add"
+            className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-700 hover:bg-purple-600 transition-all duration-300 delay-100 sm:w-auto"
+          >
+            {language.cta.button}
           </a>
         </div>
       </div>

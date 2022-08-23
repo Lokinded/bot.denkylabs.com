@@ -92,7 +92,7 @@ export default function NavBar(props: Props) {
                     </Transition>
                   </Menu>
                 ) : (
-                  <a href="/api/oauth">
+                  <a href="/dashboard">
                     <button
                       type="button"
                       className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-purple-700 hover:bg-purple-600 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"

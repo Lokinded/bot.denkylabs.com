@@ -14,11 +14,11 @@ export default function Statistics() {
               <dl className="rounded-lg border-2 border-purple-600 shadow-lg sm:grid sm:grid-cols-3">
                 <div className="flex flex-col border-b border-purple-600 p-6 text-center sm:border-0 sm:border-r">
                   <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-300">{language.home.statistics.guilds}</dt>
-                  <dd className="order-1 text-5xl font-extrabold text-purple-600">{result?.guilds.toString() ?? '3.500+'}</dd>
+                  <dd className="order-1 text-5xl font-extrabold text-purple-600">{result?.guilds.toString() ?? '3,500+'}</dd>
                 </div>
                 <div className="flex flex-col border-t border-b border-purple-600 p-6 text-center sm:border-0 sm:border-l sm:border-r">
                   <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-300">{language.home.statistics.users}</dt>
-                  <dd className="order-1 text-5xl font-extrabold text-purple-600">{result?.users.toString() ?? '750.000+'}</dd>
+                  <dd className="order-1 text-5xl font-extrabold text-purple-600">{result?.users.toString() ?? '750,000+'}</dd>
                 </div>
                 <div className="flex flex-col border-t border-purple-600 p-6 text-center sm:border-0 sm:border-l">
                   <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-300">{language.home.statistics.commands}</dt>

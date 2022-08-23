@@ -26,7 +26,7 @@ export const indexContent = {
         commands: 'Commands',
       },
       usedBy: {
-        title: 'Trusted by {servers} servers',
+        title: 'Trusted by {servers}+ servers',
       },
     },
     teamPage: {
@@ -45,6 +45,7 @@ export const indexContent = {
     },
     cta: {
       title: 'Personalize your own Discord server today for free',
+      button: 'Invite to Discord',
     },
     footer: {
       copyright: '2022 Denky Labs, Inc. All rights reserved',
@@ -96,7 +97,7 @@ export const indexContent = {
         commands: 'Comandos',
       },
       usedBy: {
-        title: 'Gerenciando mais de {servers} servidores',
+        title: '{servers} servidores confiam em nós',
       },
     },
     teamPage: {
@@ -115,6 +116,7 @@ export const indexContent = {
     },
     cta: {
       title: 'Personalize seu servidor do Discord gratuitamente agora',
+      button: 'Adicionar ao Discord',
     },
     footer: {
       copyright: '2022 Denky Labs, Inc. Todos os direitos reservados',
