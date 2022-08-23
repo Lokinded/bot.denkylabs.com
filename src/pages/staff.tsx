@@ -3,7 +3,7 @@ import Profile from '../components/discord/Profile';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import { Props } from '../types';
-import { users } from '../users';
+import { developers, owners } from '../users';
 import { FormatLanguage } from '../utils';
 import { parseUser } from '../utils/parseUser';
 
@@ -15,14 +15,32 @@ export default function StaffRoute(props: Props) {
       <div className="flex h-[65px] sticky top-0 border-b border-purple-600 justify-center px-2">
         <NavBar user={props.user} />
       </div>
-      <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
-        <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
-          <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.teamPage.title}</span>
-          <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
-            {users.map(({ id, role, connections }) => {
-              return <Profile key={id} id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} />;
-            })}
+
+      <div className="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
+        <div className="space-y-12">
+          <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{language.teamPage.title}</h2>
+            <p className="text-xl text-gray-500">
+              Por trás do Denky existem várias pessoas que trabalham arduamente para fazer com que ele funcione todos os dias 24 horas por dia, e para trazer mais melhorias para ele
+            </p>
           </div>
+          <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Donos do Denky</h2>
+          </div>
+          <ul role="list" className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
+            {owners.map(({ id, connections }) => {
+              return <Profile key={id} id={id} github={connections.github} email={connections.email} twitter={connections.twitter} />;
+            })}
+          </ul>
+
+          <div className="mt-4 space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Desenvolvedores</h2>
+          </div>
+          <ul role="list" className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
+            {developers.map(({ id, connections }) => {
+              return <Profile key={id} id={id} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} />;
+            })}
+          </ul>
         </div>
       </div>
 
