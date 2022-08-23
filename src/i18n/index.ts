@@ -43,16 +43,16 @@ export const indexContent = {
       title: 'Team',
     },
     footer: {
-      description: 'The best Discord bot to improve and boost your Discord server',
+      copyright: '2022 Denky Labs, Inc. All rights reserved',
       denky: {
-        invite: 'Invite',
+        dashboard: 'Dashboard',
         support: 'Support Server',
-        contact: 'Support Contact',
+        staff: 'Our Team',
       },
       company: {
         title: 'Company',
         privacy: 'Privacy Policy',
-        terms: 'Terms of use',
+        terms: 'Terms of Service',
         contact: 'Contact',
       },
     },
@@ -109,11 +109,11 @@ export const indexContent = {
       title: 'Equipe',
     },
     footer: {
-      description: 'O melhor bot do Discord para melhorar e impulsionar o seu servidor',
+      copyright: '2022 Denky Labs, Inc. Todos os direitos reservados',
       denky: {
-        invite: 'Convite',
+        dashboard: 'Painel de Controle',
         support: 'Servidor de Suporte',
-        contact: 'Contato de suporte',
+        staff: 'Nossa Equipe',
       },
       company: {
         title: 'Companhia',

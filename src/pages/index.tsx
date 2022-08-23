@@ -2,12 +2,10 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Card from '../components/Card';
-import Profile from '../components/discord/Profile';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import Statistics from '../components/Statistics';
 import { Props } from '../types';
-import { users } from '../users';
 import { FormatLanguage, GetApiData } from '../utils';
 import { parseUser } from '../utils/parseUser';
 
@@ -24,9 +22,11 @@ export default function IndexRoute(props: Props) {
         <link rel="shortcut icon" href="/denky_logo_566x566.png" />
         <meta content="/denky_logo_566x566.png" property="og:image" />
       </Head>
+
       <div className="flex h-[65px] sticky top-0 border-b border-purple-600 justify-center px-2">
         <NavBar user={props.user} />
       </div>
+
       <div className="xl:pt-20 xl:pl-10 pt-7 pl-6">
         <h1 className="font-bold text-4xl text-purple-500">{language.home.title}</h1>
         <div className="flex flex-col grow text-base pt-3 font-normal">
@@ -40,6 +40,7 @@ export default function IndexRoute(props: Props) {
           </p>
         </div>
       </div>
+
       <div className="flex flex-row xl:pt-2 xl:pl-8 pl-4 xl:px-8 xl:top-8 xl:bottom pt-4">
         <Link href="/add" passHref>
           <button type="button" className="h-16 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-600 text-xl font-semibold">
@@ -52,6 +53,7 @@ export default function IndexRoute(props: Props) {
           </button>
         </Link>
       </div>
+
       <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
         <span className="flex flex-row justify-center font-extrabold mt-[30px] text-3xl">{language.functions.title}</span>
         <div className="items-center space-y-5 lg:space-y-0 flex-col lg:flex-row h-full w-full max-w-full flex lg:justify-center pt-[30px]">
@@ -59,14 +61,6 @@ export default function IndexRoute(props: Props) {
           <Card title="Lockdown" text={language.functions.lockdown} />
           <Card title="Captcha" text={language.functions.captcha} />
           <Card title="AntiRaid" text={language.functions.antiraid} />
-        </div>
-        <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
-          <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.team.title}</span>
-          <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
-            {users.map(({ id, role, connections }) => {
-              return <Profile key={id} id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} />;
-            })}
-          </div>
         </div>
         <div className="flex flex-col xl:flex-row items-center justify-center w-full max-w-full p-[50px]">
           <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
@@ -76,7 +70,8 @@ export default function IndexRoute(props: Props) {
           </div>
         </div>
       </div>
-      <footer className="flex sticky top-0 border-t border-purple-600 justify-center px-4 p-5">
+
+      <footer className="flex sticky top-0 border-t border-purple-600">
         <Footer />
       </footer>
     </main>
