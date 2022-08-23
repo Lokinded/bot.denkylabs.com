@@ -17,7 +17,7 @@ export default function StaffRoute(props: Props) {
       </div>
       <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
         <div className="xl:flex xl:flex-col xl:justify-center items-center w-full max-w-full p-[50px]">
-          <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.team.title}</span>
+          <span className="flex flex-row justify-center font-extrabold mt-[30px] pt-[50px] text-3xl">{language.teamPage.title}</span>
           <div className="items-center xl:flex-row space-y-5 lg:space-y-0 flex-col lg:flex-row w-full max-w-full flex lg:justify-center pt-[30px]">
             {users.map(({ id, role, connections }) => {
               return <Profile key={id} id={id} role={role} github={connections.github} email={connections.email} twitter={connections.twitter} spotify={connections.spotify} />;

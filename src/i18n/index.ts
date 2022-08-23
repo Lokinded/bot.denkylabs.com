@@ -32,6 +32,9 @@ export const indexContent = {
         commands: 'Commands',
       },
     },
+    teamPage: {
+      title: 'Team',
+    },
     functions: {
       title: 'Main functions',
       antispam: 'Are your members sending messages too fast or too many emojis? Denky helps you block such messages.',
@@ -39,8 +42,8 @@ export const indexContent = {
       captcha: 'Suffering from Selfbots? Denky can make members have to verify themselves before interacting on the server.',
       antiraid: "With Denky's AntiRaid, you can make very new accounts unable to log into your server, preventing problems.",
     },
-    team: {
-      title: 'Team',
+    cta: {
+      title: 'Personalize your own Discord server today for free',
     },
     footer: {
       copyright: '2022 Denky Labs, Inc. All rights reserved',
@@ -98,6 +101,9 @@ export const indexContent = {
         commands: 'Comandos',
       },
     },
+    teamPage: {
+      title: 'Nossa equipe',
+    },
     functions: {
       title: 'Principais Funções',
       antispam: 'Seus membros estão enviando mensagens muito rapido ou com muitos emojis? O Denky te ajudar a bloquear mensagens desse tipo.',
@@ -105,8 +111,8 @@ export const indexContent = {
       captcha: 'Sofrendo com Selfbots? O Denky pode fazer com que membros tenham que se verificar antes de interagir no servidor',
       antiraid: 'Com o antiraid do Denky, você pode fazer com que contas muito novas não consigam entrar em seu servidor, evitando futuros problemas.',
     },
-    team: {
-      title: 'Equipe',
+    cta: {
+      title: 'Personalize seu servidor do Discord gratuitamente agora',
     },
     footer: {
       copyright: '2022 Denky Labs, Inc. Todos os direitos reservados',

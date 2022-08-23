@@ -71,7 +71,18 @@ export default function IndexRoute(props: Props) {
         </div>
       </div>
 
-      <footer className="flex sticky top-0 border-t border-purple-600">
+      <div className="flex sticky top-0 border-t border-b border-purple-600">
+        <div className="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+            <span className="block">{language.cta.title}</span>
+          </h2>
+          <a href="/dashboard" className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 sm:w-auto">
+            Adicionar ao Discord
+          </a>
+        </div>
+      </div>
+
+      <footer className="flex sticky top-0 border-purple-600">
         <Footer />
       </footer>
     </main>
